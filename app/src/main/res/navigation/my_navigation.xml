@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/main_Sudoku_Fragment">
+
+    <fragment
+        android:id="@+id/main_Sudoku_Fragment"
+        android:name="com.spidergodd607.sudokusolver.view.MainSudokuFragment"
+        android:label="layout_main_sudoku_fragment"
+        tools:layout="@layout/layout_main_sudoku_fragment" />
+</navigation>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.MainSudokuFragment">
+
+    <data>
+
+        <variable
+            name="sudokuViewModel"
+            type="com.spidergodd607.sudokusolver.viewmodel.SudokuViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGround">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white1"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Sudoku Solver"
+                    app:titleTextColor="@color/btn_text" />
+
+                <Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:onClick="@{()->sudokuViewModel.startSolving()}"
+                    android:text="@string/slove"
+                    android:textColor="#787878"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/toolbar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.spidergodd607.sudokusolver.view.SudokuBoardView
+            android:id="@+id/sudokuBoardView"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_1"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deleteButton"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_2"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button1"
+            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button1"
+            app:layout_constraintTop_toTopOf="@+id/button1" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_3"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintEnd_toStartOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_4"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_5"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button4"
+            app:layout_constraintEnd_toStartOf="@+id/button6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button4"
+            app:layout_constraintTop_toTopOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_6"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button5"
+            app:layout_constraintEnd_toStartOf="@+id/button7"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button5"
+            app:layout_constraintTop_toTopOf="@+id/button5" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_7"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button6"
+            app:layout_constraintEnd_toStartOf="@+id/button8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button6"
+            app:layout_constraintTop_toTopOf="@+id/button6" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_9"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button8"
+            app:layout_constraintTop_toTopOf="@+id/button8" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:paddingLeft="-1dp"
+            android:paddingRight="-1dp"
+            android:text="@string/_8"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintBottom_toBottomOf="@+id/button7"
+            app:layout_constraintEnd_toStartOf="@+id/button9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button7"
+            app:layout_constraintTop_toTopOf="@+id/button7" />
+
+
+        <androidx.constraintlayout.utils.widget.ImageFilterButton
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:onClick="@{()->sudokuViewModel.sudokuGame.delete()}"
+            android:src="@drawable/ic_erase"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/deleteButton2"
+            app:layout_constraintTop_toTopOf="@+id/sudokuBoardView"
+            app:layout_constraintVertical_bias="0.7" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterButton
+            android:id="@+id/deleteButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_background"
+            android:onClick="@{()->sudokuViewModel.deleteall()}"
+            android:src="@drawable/ic_note_add_black_48dp"
+            app:layout_constraintBottom_toTopOf="@+id/materialTextView"
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/deleteButton"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Board"
+            android:textColor="#787878"
+            android:onClick="@{()->sudokuViewModel.deleteall()}"
+            app:layout_constraintEnd_toEndOf="@+id/deleteButton2"
+            app:layout_constraintStart_toStartOf="@+id/deleteButton2"
+            app:layout_constraintTop_toBottomOf="@+id/deleteButton2" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->sudokuViewModel.sudokuGame.delete()}"
+            android:text="@string/erase"
+            android:textColor="#787878"
+            app:layout_constraintEnd_toEndOf="@+id/deleteButton"
+            app:layout_constraintStart_toStartOf="@+id/deleteButton"
+            app:layout_constraintTop_toBottomOf="@+id/deleteButton" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
